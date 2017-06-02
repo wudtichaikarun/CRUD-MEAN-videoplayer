@@ -12,6 +12,7 @@ mongoose.connect(db, function(err){
     }
 });
 
+//GET ALL DATA
 router.get('/videos', function(req, res){
     //console.log('Get request for all video');
     Video.find({})
@@ -24,6 +25,8 @@ router.get('/videos', function(req, res){
     });
 });
 
+
+//GET BY ID 
 router.get('/videos/:id', function(req, res){
     //console.log('Get request for a single video');
     Video.findById(req.params.id)
@@ -36,6 +39,8 @@ router.get('/videos/:id', function(req, res){
     });
 });
 
+
+//POST METHOD FOR CREATE DATA
 router.post('/video', function(req, res){
     console.log('Post a video by postman');
     var newVideo = new Video();
@@ -51,11 +56,16 @@ router.post('/video', function(req, res){
     });
 });
 
+//PUT METHOD FOR UPDATE DATA
 router.put('/video/:id', function(req, res){
    console.log('Update video by postman');
    Video.findByIdAndUpdate(req.params.id,
    {
-       $set: {title: req.body.title, url: req.body.url, discription: req.body.discription}
+       $set: {
+           title: req.body.title,
+           url: req.body.url, 
+           discription: req.body.discription
+        }
    },
    {
        new: true
@@ -66,8 +76,19 @@ router.put('/video/:id', function(req, res){
        }else{
            res.json(updateVideo);
        }
-   }
-   );
+   });
+});
+
+//DELETE METHOD
+router.delete('/video/:id', function(req, res){
+    console.log('Delete a video');
+    Video.findByIdAndRemove(req.params.id, function(err, deletedVideo){
+        if(err){
+            res.send('Error deleting video');
+        }else{
+            res.json(deletedVideo);
+        }
+    });
 });
 
 module.exports = router;
