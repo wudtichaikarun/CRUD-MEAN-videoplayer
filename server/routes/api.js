@@ -15,12 +15,13 @@ mongoose.connect(db, function(err){
 //GET ALL DATA
 router.get('/videos', function(req, res){
     //console.log('Get request for all video');
+
     Video.find({})
     .exec(function(err, videos){
         if(err){
             console.log("error retrieving videos");
         }else{
-            res.json(videos);
+            res.json(videos);          
         }
     });
 });
