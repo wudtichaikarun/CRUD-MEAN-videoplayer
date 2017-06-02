@@ -20,7 +20,8 @@ export class VideoCenterComponent implements OnInit {
     this._videoService.getVideos()
     .subscribe(resVideoData => this.videos = resVideoData);
   }
-  selectedVideo = Video;
+
+  selectedVideo: Video;
 
 onSelectVideo(video: any){
   this.selectedVideo = video;
