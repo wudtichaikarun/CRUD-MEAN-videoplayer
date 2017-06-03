@@ -25,12 +25,18 @@ onTitleClick(){
   this.editTitle = true
 }
 
+//onblur title
+onMouseout(){
+  this.editTitle = false;
+  console.log('event mouseout working');
+}
+
 updateVideo(){
   this.updateVideoEvent.emit(this.video);
 }
+
 deleteVideo(){
   this.deleteVideoEvent.emit(this.video);
-
 }
 
 }

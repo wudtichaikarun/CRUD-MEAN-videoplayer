@@ -18,7 +18,6 @@ export class VideoListComponent implements OnInit {
 
 onSelect(vid: Video){
   this.SelectVideo.emit(vid);
-
 }
 
 }
