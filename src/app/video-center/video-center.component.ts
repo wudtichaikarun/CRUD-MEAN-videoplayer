@@ -12,20 +12,33 @@ export class VideoCenterComponent implements OnInit {
 
   constructor(private _videoService: VideoService) { }
 
-
-
   videos: Array<Video>;
+
+  selectedVideo: Video;
+  private hidenewVideo: boolean = true;
 
   ngOnInit() {
     this._videoService.getVideos()
     .subscribe(resVideoData => this.videos = resVideoData);
   }
 
-  selectedVideo: Video;
-
 onSelectVideo(video: any){
   this.selectedVideo = video;
+  this.hidenewVideo = true;
   console.log(this.selectedVideo);
+}
+
+onSubmitAddVideo(video: Video){
+  this._videoService.addVideo(video)
+  .subscribe(resNewVideo => {
+    this.videos.push(resNewVideo);
+    this.hidenewVideo = true;
+    this.selectedVideo = resNewVideo;
+  });
+}
+
+newVideo(){
+  this.hidenewVideo = false;
 }
 
 
