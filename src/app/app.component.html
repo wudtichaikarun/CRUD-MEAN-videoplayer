@@ -4,11 +4,13 @@
       <a href="#" class="navbar-brand">VideoPlayer</a>
     </div>
     <ul class="nav navbar-nav">
-      <li><a href="" routerLink="/home" routerLinkActive="active">Home</a></li>
-      <li><a href="" routerLink="/videos" routerLinkActive="active">Playlist</a></li>
+      <li><a routerLink="/home" routerLinkActive="active">Home</a></li>
+      <li><a routerLink="/videos" routerLinkActive="active">Playlist</a></li>
     </ul>
   </div>
 </nav>
+
+<!--RouterOutlet is one of the directives provided by the RouterModule-->
 <div class="container">
   <router-outlet></router-outlet>
 </div>
