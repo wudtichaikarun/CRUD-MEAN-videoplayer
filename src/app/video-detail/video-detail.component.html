@@ -21,6 +21,17 @@
            </textarea>
         </div>
         <button type="button" (click)="updateVideo()" class="btn btn-primary">Update</button>
-        <button type="button" (click)="deleteVideo()" class="btn btn-danger">Delete</button>
+        <!--<button type="button" (click)="deleteVideo()" class="btn btn-danger">Delete</button>-->
+        <button
+            class="btn btn-danger"
+            mwlConfirm
+            [title]="title"
+            [message]="message"
+            placement="top"
+            (confirm)="ConfirmClicked()"
+            (cancel)="cancelClicked = true"
+            [(isOpen)]="isOpen">
+            Delete
+        </button>
     </form>
 </div>

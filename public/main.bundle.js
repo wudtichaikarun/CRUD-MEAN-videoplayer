@@ -52,7 +52,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-inverse\">\n  <div class=\"container-fluid\">\n    <div class=\"navbar-header\">\n      <a href=\"#\" class=\"navbar-brand\">VideoPlayer</a>\n    </div>\n    <ul class=\"nav navbar-nav\">\n      <li><a routerLink=\"/home\" routerLinkActive=\"active\">Home</a></li>\n      <li><a routerLink=\"/videos\" routerLinkActive=\"active\">Playlist</a></li>\n    </ul>\n  </div>\n</nav>\n\n<!--RouterOutlet is one of the directives provided by the RouterModule-->\n<div class=\"container\">\n  <router-outlet></router-outlet>\n</div>\n\n <button\n      class=\"btn btn-danger\"\n      mwlConfirm\n      [title]=\"title\"\n      [message]=\"message\"\n      placement=\"bottom\"\n      (confirm)=\"ConfirmClicked()\"\n      (cancel)=\"cancelClicked = true\"\n      [(isOpen)]=\"isOpen\">\n      Delete\n    </button>"
+module.exports = "<nav class=\"navbar navbar-inverse\">\n  <div class=\"container-fluid\">\n    <div class=\"navbar-header\">\n      <a href=\"#\" class=\"navbar-brand\">VideoPlayer</a>\n    </div>\n    <ul class=\"nav navbar-nav\">\n      <li><a routerLink=\"/home\" routerLinkActive=\"active\">Home</a></li>\n      <li><a routerLink=\"/videos\" routerLinkActive=\"active\">Playlist</a></li>\n    </ul>\n  </div>\n</nav>\n\n<!--RouterOutlet is one of the directives provided by the RouterModule-->\n<div class=\"container\">\n  <router-outlet></router-outlet>\n</div>\n\n"
 
 /***/ }),
 
@@ -61,9 +61,6 @@ module.exports = "<nav class=\"navbar navbar-inverse\">\n  <div class=\"containe
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angular2_bootstrap_confirm__ = __webpack_require__("../../../../angular2-bootstrap-confirm/dist/esm/src/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angular2_bootstrap_confirm_position__ = __webpack_require__("../../../../angular2-bootstrap-confirm/position/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angular2_bootstrap_confirm_position___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_angular2_bootstrap_confirm_position__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -75,26 +72,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
-
-
 var AppComponent = (function () {
     function AppComponent() {
-        //config confirm property
-        this.title = 'Confirm Delete';
-        this.message = 'Are you sure! to delete?';
-        this.confirmClicked = false;
-        this.cancelClicked = false;
-        this.isOpen = false;
     }
     AppComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* Component */])({
             selector: 'app-root',
             template: __webpack_require__("../../../../../src/app/app.component.html"),
-            styles: [__webpack_require__("../../../../../src/app/app.component.css")],
-            providers: [
-                __WEBPACK_IMPORTED_MODULE_1_angular2_bootstrap_confirm__["b" /* ConfirmOptions */],
-                { provide: __WEBPACK_IMPORTED_MODULE_1_angular2_bootstrap_confirm__["c" /* Position */], useClass: __WEBPACK_IMPORTED_MODULE_2_angular2_bootstrap_confirm_position__["Positioning"] }
-            ]
+            styles: [__webpack_require__("../../../../../src/app/app.component.css")]
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);
@@ -197,7 +182,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/home/home.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"jumbotron\">\n  <h1>Video Player</h1>\n</div>"
+module.exports = "<div class=\"jumbotron\">\n  <h1>Video Player</h1>\n</div>\n"
 
 /***/ }),
 
@@ -294,7 +279,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/video-center/video-center.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\n  <div class=\"col-sm-9\">\n    <div *ngIf=\"!hidenewVideo\">\n      <h2>New Video</h2>\n      <form #form=\"ngForm\" (ngSubmit)=\"onSubmitAddVideo(form.value)\" class=\"well\">\n        <div class=\"form-group\">\n          <label>Title</label>\n          <input type=\"text\" class=\"form-control\" required name=\"title\" ngModel>\n        </div>\n        <div class=\"form-group\">\n          <label>Url</label>\n         <input type=\"text\" class=\"form-control\" required name=\"url\" ngModel>\n        </div>\n        <div class=\"form-group\">\n          <label>Description</label>\n          <input type=\"text\" class=\"form-control\"  name=\"discription\" ngModel>\n        </div>\n        <button type=\"submit\" class=\"btn btn-success\">Save</button>\n      </form>\n    </div>\n\n    <video-detail \n    (updateVideoEvent)=\"onUpdateVideoEvent($event)\"\n    (deleteVideoEvent)=\"onDeleteVideoEvent($event)\"\n    *ngIf=\"selectedVideo && hidenewVideo\" \n    [video]=\"selectedVideo\"></video-detail>\n  </div>\n  \n  <div class=\"col-sm-3\">\n    <button (click)=\"newVideo()\" style=\"margin-bottom: 2px;\" type=\"button\" class=\"btn btn-success btn-block\">+ New Video</button>\n    <video-list (SelectVideo)=\"onSelectVideo($event)\" [videos]=\"videos\"></video-list>\n  </div>\n</div>\n\n"
+module.exports = "<div class=\"row\">\n  <div class=\"col-sm-9\">\n    <div *ngIf=\"!hidenewVideo\">\n      <h2>New Video</h2>\n      <form #form=\"ngForm\" (ngSubmit)=\"onSubmitAddVideo(form.value)\" class=\"well\">\n        <div class=\"form-group\">\n          <label>Title</label>\n          <input \n            type=\"text\" \n            class=\"form-control\" \n            required \n            name=\"title\" \n            ngModel\n            placeholder=\"Enter titie name\" >\n        </div>\n        <div class=\"form-group\">\n          <label>Url</label>\n          <input \n            type=\"text\" \n            class=\"form-control\" \n            required \n            name=\"url\" \n            ngModel\n            placeholder=\"Enter url link\" >\n        </div>\n        <div class=\"form-group\">\n          <label>Description</label>\n          <input \n            type=\"text\" \n            class=\"form-control\"  \n            name=\"discription\" \n            ngModel\n            placeholder=\"Enter descrtption\" >\n        </div>\n        <button type=\"submit\" class=\"btn btn-success\">Save</button>\n      </form>\n    </div>\n\n    <video-detail \n    (updateVideoEvent)=\"onUpdateVideoEvent($event)\"\n    (deleteVideoEvent)=\"onDeleteVideoEvent($event)\"\n    *ngIf=\"selectedVideo && hidenewVideo\" \n    [video]=\"selectedVideo\"></video-detail>\n  </div>\n  \n  <div class=\"col-sm-3\">\n    <button (click)=\"newVideo()\" style=\"margin-bottom: 2px;\" type=\"button\" class=\"btn btn-success btn-block\">+ New Video</button>\n    <video-list (SelectVideo)=\"onSelectVideo($event)\" [videos]=\"videos\"></video-list>\n  </div>\n</div>\n\n"
 
 /***/ }),
 
@@ -401,7 +386,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/video-detail/video-detail.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n    <div>\n        <iframe [src]=\"video.url | safe\" width=\"100%\" height=\"500\"></iframe>\n    </div>\n    <form>\n        <!--video tilte edit status-->\n        <div *ngIf=\"editTitle\" class=\"form-group\">\n            <input (mouseout)=\"onMouseout()\" type=\"input\" class=\"form-control\" name=\"title\" required placeholder=\"title\" \n            [(ngModel)]=\"video.title\">\n        </div>\n         <!--video tilte normol status-->\n        <h3 *ngIf=\"!editTitle\" (click)=\"onTitleClick()\">{{video.title}}</h3>\n\n        <div class=\"form-group\">\n           <input type=\"input\" class=\"form-control\" name=\"url\" required placeholder=\"url\" \n           [(ngModel)]=\"video.url\">\n        </div>\n        <div class=\"form-group\">\n           <textarea name=\"desc\" class=\"form-control\" rows=\"5\" placeholder=\"discription\"\n            [(ngModel)]=\"video.discription\">\n           </textarea>\n        </div>\n        <button type=\"button\" (click)=\"updateVideo()\" class=\"btn btn-primary\">Update</button>\n        <button type=\"button\" (click)=\"deleteVideo()\" class=\"btn btn-danger\">Delete</button>\n    </form>\n</div>"
+module.exports = "<div>\n    <div>\n        <iframe [src]=\"video.url | safe\" width=\"100%\" height=\"500\"></iframe>\n    </div>\n    <form>\n        <!--video tilte edit status-->\n        <div *ngIf=\"editTitle\" class=\"form-group\">\n            <input (mouseout)=\"onMouseout()\" type=\"input\" class=\"form-control\" name=\"title\" required placeholder=\"title\" \n            [(ngModel)]=\"video.title\">\n        </div>\n         <!--video tilte normol status-->\n        <h3 *ngIf=\"!editTitle\" (click)=\"onTitleClick()\">{{video.title}}</h3>\n\n        <div class=\"form-group\">\n           <input type=\"input\" class=\"form-control\" name=\"url\" required placeholder=\"url\" \n           [(ngModel)]=\"video.url\">\n        </div>\n        <div class=\"form-group\">\n           <textarea name=\"desc\" class=\"form-control\" rows=\"5\" placeholder=\"discription\"\n            [(ngModel)]=\"video.discription\">\n           </textarea>\n        </div>\n        <button type=\"button\" (click)=\"updateVideo()\" class=\"btn btn-primary\">Update</button>\n        <!--<button type=\"button\" (click)=\"deleteVideo()\" class=\"btn btn-danger\">Delete</button>-->\n        <button\n            class=\"btn btn-danger\"\n            mwlConfirm\n            [title]=\"title\"\n            [message]=\"message\"\n            placement=\"top\"\n            (confirm)=\"ConfirmClicked()\"\n            (cancel)=\"cancelClicked = true\"\n            [(isOpen)]=\"isOpen\">\n            Delete\n        </button>\n    </form>\n</div>"
 
 /***/ }),
 
@@ -410,6 +395,9 @@ module.exports = "<div>\n    <div>\n        <iframe [src]=\"video.url | safe\" w
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angular2_bootstrap_confirm__ = __webpack_require__("../../../../angular2-bootstrap-confirm/dist/esm/src/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angular2_bootstrap_confirm_position__ = __webpack_require__("../../../../angular2-bootstrap-confirm/position/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angular2_bootstrap_confirm_position___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_angular2_bootstrap_confirm_position__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return VideoDetailComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -421,11 +409,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
 var VideoDetailComponent = (function () {
     function VideoDetailComponent() {
         this.editTitle = false;
         this.updateVideoEvent = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* EventEmitter */]();
         this.deleteVideoEvent = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* EventEmitter */]();
+        //config confirm property
+        this.title = 'Confirm Delete';
+        this.message = 'Are you sure! to delete?';
+        this.confirmClicked = false;
+        this.cancelClicked = false;
+        this.isOpen = false;
     }
     VideoDetailComponent.prototype.ngOnInit = function () {
     };
@@ -443,8 +439,14 @@ var VideoDetailComponent = (function () {
     VideoDetailComponent.prototype.updateVideo = function () {
         this.updateVideoEvent.emit(this.video);
     };
-    VideoDetailComponent.prototype.deleteVideo = function () {
-        this.deleteVideoEvent.emit(this.video);
+    // deleteVideo(){
+    //   this.deleteVideoEvent.emit(this.video);
+    // }
+    VideoDetailComponent.prototype.ConfirmClicked = function () {
+        this.confirmClicked = true;
+        if (this.confirmClicked) {
+            this.deleteVideoEvent.emit(this.video);
+        }
     };
     VideoDetailComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* Component */])({
@@ -452,7 +454,11 @@ var VideoDetailComponent = (function () {
             template: __webpack_require__("../../../../../src/app/video-detail/video-detail.component.html"),
             styles: [__webpack_require__("../../../../../src/app/video-detail/video-detail.component.css")],
             inputs: ['video'],
-            outputs: ['updateVideoEvent', 'deleteVideoEvent']
+            outputs: ['updateVideoEvent', 'deleteVideoEvent'],
+            providers: [
+                __WEBPACK_IMPORTED_MODULE_1_angular2_bootstrap_confirm__["b" /* ConfirmOptions */],
+                { provide: __WEBPACK_IMPORTED_MODULE_1_angular2_bootstrap_confirm__["c" /* Position */], useClass: __WEBPACK_IMPORTED_MODULE_2_angular2_bootstrap_confirm_position__["Positioning"] }
+            ]
         }), 
         __metadata('design:paramtypes', [])
     ], VideoDetailComponent);

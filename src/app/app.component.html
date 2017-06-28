@@ -15,14 +15,3 @@
   <router-outlet></router-outlet>
 </div>
 
- <button
-      class="btn btn-danger"
-      mwlConfirm
-      [title]="title"
-      [message]="message"
-      placement="bottom"
-      (confirm)="ConfirmClicked()"
-      (cancel)="cancelClicked = true"
-      [(isOpen)]="isOpen">
-      Delete
-    </button>
