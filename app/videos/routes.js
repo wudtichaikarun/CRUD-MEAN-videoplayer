@@ -1,12 +1,11 @@
 
-// impconst express = require('express');
-const express = require('express');
-const router = express.Router();
-
 import controller from './controller';
-
-//GET ALL DATA
 export function  setup(router){
     router
+        .get('/:id', controller.get)
         .get('/', controller.getAll)
+        .post('/', controller.create)
+        .put('/:id', controller.update)
+        .delete('/:id', controller.destroy)
+
 }

@@ -559,9 +559,9 @@ var VideoService = (function () {
     function VideoService(_http) {
         this._http = _http;
         this._getUrl = "/videos";
-        this._postUrl = "/api/video";
-        this._putUrl = "/api/video/";
-        this._deleteUrl = "/api/video/";
+        this._postUrl = "/videos";
+        this._putUrl = "/videos:";
+        this._deleteUrl = "/videos:";
     }
     VideoService.prototype.getVideos = function () {
         return this._http.get(this._getUrl)

@@ -1,8 +1,10 @@
-// import express from 'express'
- import fs from 'fs'
- //import path from 'path'
-// import bodyParsr from 'body-parser'
+//import express from 'express'
+//import fs from 'fs'
+//import bodyParsr from 'body-parser'
+//import path from 'path'
+
 const express = require('express');
+const fs = require('fs');
 const bodyParsr = require('body-parser');
 const path = require('path');
 

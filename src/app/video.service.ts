@@ -6,9 +6,9 @@ import {Video} from './video';
 @Injectable()
 export class VideoService {
   private _getUrl = "/videos";
-  private _postUrl = "/api/video";
-  private _putUrl = "/api/video/";
-  private _deleteUrl = "/api/video/";
+  private _postUrl = "/videos";
+  private _putUrl = "/videos:";
+  private _deleteUrl = "/videos:";
 
 
   constructor(private _http: Http) { }
