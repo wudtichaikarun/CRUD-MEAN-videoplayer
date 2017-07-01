@@ -13,6 +13,7 @@ import { VideoDetailComponent } from './video-detail/video-detail.component';
 import { SafePipe } from './safe.pipe';
 import { routes } from './app-routing.module';
 
+import {ShareButtonsModule} from 'ngx-sharebuttons';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { routes } from './app-routing.module';
     ConfirmModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    ShareButtonsModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
