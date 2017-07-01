@@ -22,7 +22,7 @@ const path = require('path');
 //     })
 // }
 
-//export function setup () {
+export function setup () {
     const api = require('./app/videos/routes')
     const port = 3000
     const app = express()
@@ -40,4 +40,4 @@ const path = require('path');
     app.listen(port, function(){
         console.log("server running on localhost:" + port);
     })
-//}
+}
