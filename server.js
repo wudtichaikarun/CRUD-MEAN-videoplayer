@@ -1,24 +1,43 @@
+// import express from 'express'
+// import fs from 'fs'
+// import path from 'path'
+// import bodyParsr from 'body-parser'
 const express = require('express');
 const bodyParsr = require('body-parser');
 const path = require('path');
 
-const api = require('./server/routes/api');
+//for call folder app
+// function setupRoutes(app){
+//     const APP_DIR = `${__dirname}/app`
+//     const features = fs.readdirSync(APP_DIR).filter(
+//         file => fs.statSync(`${APP_DIR}/${file}`).isDirectory()
+//     )
 
-const port = 3000;
+//     features.forEach(feature => {
+//         const router = express.Router()
+//         const routes = require(`${APP_DIR}/${feature}/routes.js`)
 
-const app = express();
+//         routes.setup(router)
+//         app.use(`/${feature}`, router)
+//     })
+// }
 
-app.use(express.static(path.join(__dirname, 'public')));
+//export function setup () {
+    const api = require('./app/videos/routes')
+    const port = 3000
+    const app = express()
 
-app.use(bodyParsr.urlencoded({extended: true}));
-app.use(bodyParsr.json());
+    app.use(express.static(path.join(__dirname, 'public')))
+    app.use(bodyParsr.urlencoded({extended: true}))
+    app.use(bodyParsr.json())
+    app.use('/api', api)
+    //setupRoutes(app)
+    app.get('*', (req, res) => {
+        res.sendFile(path.join(__dirname, 'public/index.html'))
+    })
+    
 
-app.use('/api', api);
-
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public/index.html'));
-});
-
-app.listen(port, function(){
-    console.log("server running on localhost:" + port);
-});
+    app.listen(port, function(){
+        console.log("server running on localhost:" + port);
+    })
+//}
