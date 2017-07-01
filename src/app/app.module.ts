@@ -31,8 +31,7 @@ import {ShareButtonsModule} from 'ngx-sharebuttons';
     ConfirmModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(routes),
-    ShareButtonsModule.forRoot()
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
