@@ -6,7 +6,7 @@ const router = express.Router();
 import controller from './controller';
 
 //GET ALL DATA
+export function  setup(router){
     router
-        .get('/videos', controller.getAll)
-
-module.exports = router;
+        .get('/', controller.getAll)
+}

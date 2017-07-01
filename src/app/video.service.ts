@@ -5,7 +5,7 @@ import {Video} from './video';
 
 @Injectable()
 export class VideoService {
-  private _getUrl = "/api/videos";
+  private _getUrl = "/videos";
   private _postUrl = "/api/video";
   private _putUrl = "/api/video/";
   private _deleteUrl = "/api/video/";

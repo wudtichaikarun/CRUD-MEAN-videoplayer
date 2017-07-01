@@ -558,7 +558,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var VideoService = (function () {
     function VideoService(_http) {
         this._http = _http;
-        this._getUrl = "/api/videos";
+        this._getUrl = "/videos";
         this._postUrl = "/api/video";
         this._putUrl = "/api/video/";
         this._deleteUrl = "/api/video/";
