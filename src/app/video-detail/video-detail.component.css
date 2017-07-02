@@ -1,3 +1,7 @@
 iframe{
     border-radius: 9px;
 }
+
+form{
+    margin-bottom: 10px;
+}

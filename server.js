@@ -25,14 +25,12 @@ function setupRoutes(app){
 }
 
 export function setup () {
-    //const api = require('./app/videos/routes')
     const port = 3000
     const app = express()
 
     app.use(express.static(path.join(__dirname, 'public')))
     app.use(bodyParsr.urlencoded({extended: true}))
     app.use(bodyParsr.json())
-    //app.use('/api', api)
     setupRoutes(app)
     
     app.get('*', (req, res) => {

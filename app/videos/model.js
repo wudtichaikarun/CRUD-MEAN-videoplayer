@@ -17,4 +17,4 @@ const videoSchema = new Schema({
     discription: String
 });
 
-module.exports = mongoose.model('Video', videoSchema);
+module.exports = mongoose.model('Video', videoSchema, 'videos');

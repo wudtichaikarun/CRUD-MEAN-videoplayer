@@ -373,7 +373,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "iframe{\n    border-radius: 9px;\n}", ""]);
+exports.push([module.i, "iframe{\n    border-radius: 9px;\n}\n\nform{\n    margin-bottom: 10px;\n}", ""]);
 
 // exports
 
