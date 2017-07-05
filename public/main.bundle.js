@@ -558,35 +558,36 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var VideoService = (function () {
     function VideoService(_http) {
         this._http = _http;
-        this._getUrl = "/videos";
-        this._postUrl = "/videos";
-        this._putUrl = "/videos:";
-        this._deleteUrl = "/videos:";
     }
+    // READ video
     VideoService.prototype.getVideos = function () {
-        return this._http.get(this._getUrl)
+        return this._http.get('/videos')
             .map(function (response) { return response.json(); });
     };
+    // CREATE video
     VideoService.prototype.addVideo = function (video) {
-        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Headers */]({ 'Content-Type': 'application/json' });
-        var options = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* RequestOptions */]({ headers: headers });
-        return this._http.post(this._postUrl, JSON.stringify(video), options)
+        var options = {
+            headers: new __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Headers */]({ 'Content-Type': 'application/json' })
+        };
+        return this._http.post('/videos', JSON.stringify(video), options)
             .map(function (response) { return response.json(); });
     };
-    //update video service
+    // UPDATE video 
     VideoService.prototype.updateVideo = function (video) {
-        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Headers */]({ 'Content-Type': 'application/json' });
-        var options = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* RequestOptions */]({ headers: headers });
-        return this._http.put(this._putUrl + video._id, JSON.stringify(video), options)
+        var options = {
+            headers: new __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Headers */]({ 'Content-Type': 'application/json' })
+        };
+        return this._http.put("videos/" + video._id, JSON.stringify(video), options)
             .map(function (response) { return response.json(); });
     };
+    // DELETE video
     VideoService.prototype.deleteVideo = function (video) {
-        return this._http.delete(this._deleteUrl + video._id)
+        return this._http.delete("videos/" + video._id)
             .map(function (response) { return response.json(); });
     };
     VideoService = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["p" /* Injectable */])(), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* Http */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* Http */]) === 'function' && _a) || Object])
+        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* Http */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* Http */]) === 'function' && _a) || Object])
     ], VideoService);
     return VideoService;
     var _a;

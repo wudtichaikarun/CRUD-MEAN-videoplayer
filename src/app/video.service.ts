@@ -1,43 +1,41 @@
 import { Injectable } from '@angular/core';
-import { Http, Response,Headers, RequestOptions } from '@angular/http';
+import { Http, Response,Headers,RequestOptionsArgs } from '@angular/http';
 import 'rxjs/add/operator/map';
 import {Video} from './video';
 
 @Injectable()
 export class VideoService {
-  private _postUrl = "/videos";
-  private _putUrl = "/videos:";
-  private _deleteUrl = "/videos:";
-
 
   constructor(private _http: Http) { }
-
+  
+  // READ video
   getVideos(){
     return this._http.get('/videos')
     .map((response: Response) => response.json());
   }
 
+  // CREATE video
   addVideo(video: Video){
-    let headers = new Headers({'Content-Type': 'application/json'});
-    const options = new RequestOptions(
-      { headers: headers }
-      );
-
+    const options:RequestOptionsArgs = {
+      headers: new Headers({'Content-Type': 'application/json'})
+    }
     return this._http.post('/videos', JSON.stringify(video), options)
     .map((response: Response) => response.json());
   }
 
-//update video service
-updateVideo(video: Video){
-   let headers = new Headers({'Content-Type': 'application/json'});
-    let options = new RequestOptions({ headers: headers});
-    return this._http.put(this._putUrl + video._id, JSON.stringify(video), options)
+  // UPDATE video 
+  updateVideo(video: Video){
+   const options:RequestOptionsArgs = {
+      headers: new Headers({'Content-Type': 'application/json'})
+    }
+    return this._http.put(`videos/${video._id}`, JSON.stringify(video), options)
     .map((response: Response) => response.json());
- }
+  }
 
- deleteVideo(video: Video){
-    return this._http.delete(this._deleteUrl + video._id)
+  // DELETE video
+  deleteVideo(video: Video){
+    return this._http.delete(`videos/${video._id}`)
     .map((response: Response) => response.json());
- }
+  }
 
 }
