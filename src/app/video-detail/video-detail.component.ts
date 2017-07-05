@@ -28,8 +28,6 @@ export class VideoDetailComponent implements OnInit {
 
  constructor() { }
 
-
-
   ngOnInit() {
   }
 
